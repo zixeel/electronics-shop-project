@@ -56,7 +56,21 @@ class Item:
                 quantity = int(item['quantity'])
                 cls(name, price, quantity)
 
-
     @staticmethod
     def string_to_number(num):
         return int(float(num))
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return self.__name
+
+    def __add__(self, other):
+        if not isinstance(other, Item):
+            return None
+        return self.quantity + other.quantity
+
+
+
+
