@@ -65,3 +65,12 @@ class Item:
 
     def __str__(self):
         return self.__name
+
+    def __add__(self, other):
+        if not isinstance(other, Item):
+            return None
+        return self.quantity + other.quantity
+
+
+
+
